@@ -77,7 +77,7 @@ def neuralModel(model, X, labels):
             return labels[prediction]
         except ValueError:
             return ''
-        
+
 def Generate(name, vectors, _):
     global _first_time, _max_samples
     with open('config.json') as f:
@@ -113,3 +113,4 @@ def Generate(name, vectors, _):
                 json.dump(_info, file, indent=2)
             exit()
     return f"{max_samples-_max_samples}/{max_samples}"
+

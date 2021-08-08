@@ -19,9 +19,6 @@ model_version = config['ModelVersion']
 data = read_csv(f'data/{data_version}', sep=",")
 y = np.array(data.iloc[:, -1])
 X = np.array(data.iloc[:, 0:-2])
-# print(np.where(X == 'thumbs-up'))
-# X = X.astype(np.float)
-print(X.shape)
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
 
 X_train = X_train.reshape(X_train.shape[0], 1, X_train.shape[1])
@@ -40,7 +37,7 @@ print(f"Loss: {test_loss}\naccuracy: {test_acc}")
 
 
 model.save(f'models/model-v{round(model_version+.1, 1)}.pb')
-config["CurrentModel"] = f"model-v{round(model_version+.1, 1)}.h5"
+config["CurrentModel"] = f"model-v{round(model_version+.1, 1)}.pb"
 config["ModelVersion"] = round(config['ModelVersion'] + .1, 1)
 with open('config.json', 'w') as f:
    json.dump(config, f, indent=2)

@@ -14,7 +14,7 @@ def main(z, labels, model=None):
     maps = {
         'knnModel': knnModel,
         'neuralModel': neuralModel,
-        'Generate': Generate
+        'Generate': Generate,
     }
     
     cap = cv2.VideoCapture(0)
@@ -33,11 +33,10 @@ def main(z, labels, model=None):
                     dd = createVector(image, results)
                     try:
                         prediction = maps[z](model, dd, labels)
+                        cv2.putText(image, prediction, (25, 25),
+                                cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2, cv2.LINE_AA)
                     except KeyError:
                         print("ProgrammingError: No such action found")
-                    cv2.putText(image, prediction, (25, 25),
-                                cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2, cv2.LINE_AA)
-
                 cv2.imshow('MediaPipe Hands', image)
                 if cv2.waitKey(5) & 0xFF == ord('q'):
                     break

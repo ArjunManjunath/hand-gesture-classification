@@ -7,7 +7,7 @@ In the repository I have created two models, a classic machine learning model an
 | id |      model      | average accuracy | file |
 |----------|:-------------:|:---:|:-------:|
 | 1 |  K Nearest Neighbour | 95.1%  | [KnnModel.py](https://github.com/gitmax681/hand-gesture-recognition/blob/master/KnnModel.py)
-| 2 |  Neural Network Model  | 97.8%|   [neuralModel.py](https://github.com/gitmax681/hand-gesture-recognition/blob/master/KnnModel.py)
+| 2 |  Neural Network Model  | 99.1%|   [neuralModel.py](https://github.com/gitmax681/hand-gesture-recognition/blob/master/KnnModel.py)
 
 It is implemented using mediapipe and tensorflow. [more](#how-it-works)
 
